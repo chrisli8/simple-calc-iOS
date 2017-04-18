@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             let op1 = Int(operators[0])
             let op2 = Int(operators[2])
             let opMiddle = operators[1]
+            print("TEST: \(operators)")
             display.text?.removeAll()
             if opMiddle == "+" {
                 display.text?.append("\(op1! + op2!)")
@@ -32,9 +33,9 @@ class ViewController: UIViewController {
             } else if opMiddle == "%" {
                 display.text?.append("\(op1! % op2!)")
             }
-            
-            operators.removeAll()
         }
+        index = 0
+        operators.removeAll()
     }
     
     @IBAction func OpButtonPressed(_ sender: UIButton) {
@@ -56,13 +57,7 @@ class ViewController: UIViewController {
                 display.text?.append("%")
                 operators.append("%")
             }
-        }
-    }
-    
-    @IBAction func PlusButtonPressed(_ sender: Any) {
-        if operators.count % 2 == 1 {
-            display.text?.append("+")
-            operators.append("+")
+            index += 2
         }
     }
     
@@ -70,10 +65,16 @@ class ViewController: UIViewController {
         if operators.count == 0 {
             display.text?.removeAll()
         }
-        //if operators.count % 2 == 0 {
-            let value = sender.titleLabel?.text
+        if index % 2 == 0 {
+            var value = sender.titleLabel?.text
             display.text?.append(value!)
+            if operators.count > index {
+                value = operators[index] + value!
+                operators.remove(at: index)
+            }
             operators.append(value!)
+            print("TEST: \(operators)")
+        }
     }
 
     override func viewDidLoad() {
