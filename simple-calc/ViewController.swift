@@ -29,9 +29,35 @@ class ViewController: UIViewController {
             } else if opMiddle == "-" {
                 display.text?.append("\(op1! - op2!)")
             } else if opMiddle == "/" {
-                display.text?.append("\(op1! / op2!)")
+                if op2 == 0 {
+                    display.text?.append("not a number")
+                } else {
+                    display.text?.append("\(op1! / op2!)")
+                }
             } else if opMiddle == "%" {
                 display.text?.append("\(op1! % op2!)")
+            } else if opMiddle == "count" {
+                display.text?.append("\((operators.count + 1) / 2)")
+            } else if opMiddle == "avg" {
+                
+            }
+        } else if operators.count == 2 {
+            print("TEST: \(operators)")
+            display.text?.removeAll()
+            
+            let opMiddle = operators[1]
+                
+            if opMiddle == "fact" {
+                
+                var total = 1
+                let firstNumber = Int.init(operators[0])
+                for index in 1...firstNumber! {
+                    total *= index
+                }
+                display.text?.append("\(total)")
+
+            } else if opMiddle == "count" {
+                display.text?.append("\((operators.count + 1) / 2)")
             }
         }
         index = 0
@@ -41,22 +67,26 @@ class ViewController: UIViewController {
     @IBAction func OpButtonPressed(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         if operators.count % 2 == 1 {
-            if op == "+" {
-                display.text?.append("+")
-                operators.append("+")
-            } else if op == "*" {
-                display.text?.append("*")
-                operators.append("*")
-            } else if op == "-" {
-                display.text?.append("-")
-                operators.append("-")
-            } else if op == "/" {
-                display.text?.append("/")
-                operators.append("/")
-            } else if op == "%" {
-                display.text?.append("%")
-                operators.append("%")
-            }
+            display.text?.append(op!)
+            operators.append(op!)
+            
+//            if op == "+" {
+//                display.text?.append("+")
+//                operators.append("+")
+//            } else if op == "*" {
+//                display.text?.append("*")
+//                operators.append("*")
+//            } else if op == "-" {
+//                display.text?.append("-")
+//                operators.append("-")
+//            } else if op == "/" {
+//                display.text?.append("/")
+//                operators.append("/")
+//            } else if op == "%" {
+//                display.text?.append("%")
+//                operators.append("%")
+//            }
+            
             index += 2
         }
     }
