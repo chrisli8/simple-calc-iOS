@@ -65,6 +65,8 @@ class ViewController: UIViewController {
 
             } else if opMiddle == "count" {
                 display.text?.append("\((operators.count + 1) / 2)")
+            } else if opMiddle == "avg" {
+                display.text?.append("\(operators[0])")
             }
         }
         index = 0
