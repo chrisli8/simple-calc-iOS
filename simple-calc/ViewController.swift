@@ -39,7 +39,14 @@ class ViewController: UIViewController {
             } else if opMiddle == "count" {
                 display.text?.append("\((operators.count + 1) / 2)")
             } else if opMiddle == "avg" {
-                
+                let numOfElements = (operators.count + 1) / 2
+                var total = 0
+                for index in 0...operators.count {
+                    if index % 2 == 0 {
+                        total += Int.init(operators[index])!
+                    }
+                }
+                display.text?.append("\(total/numOfElements)")
             }
         } else if operators.count == 2 {
             print("TEST: \(operators)")
