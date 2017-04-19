@@ -71,6 +71,7 @@ class ViewController: UIViewController {
         }
         index = 0
         operators.removeAll()
+        operators.append(display.text!)
     }
     
     @IBAction func OpButtonPressed(_ sender: UIButton) {
