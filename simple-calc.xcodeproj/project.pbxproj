@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					979CCE121EA59D9A00E856B0 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = QDN7KM2J58;
 						ProvisioningStyle = Automatic;
 					};
 					979CCE261EA59D9A00E856B0 = {
@@ -412,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QDN7KM2J58;
 				INFOPLIST_FILE = "simple-calc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ChrisLi.simple-calc";
@@ -424,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QDN7KM2J58;
 				INFOPLIST_FILE = "simple-calc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ChrisLi.simple-calc";
@@ -505,6 +508,7 @@
 				979CCE3D1EA59D9A00E856B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		979CCE3E1EA59D9A00E856B0 /* Build configuration list for PBXNativeTarget "simple-calcTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +517,7 @@
 				979CCE401EA59D9A00E856B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		979CCE411EA59D9A00E856B0 /* Build configuration list for PBXNativeTarget "simple-calcUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +526,7 @@
 				979CCE431EA59D9A00E856B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -74,29 +74,16 @@ class ViewController: UIViewController {
         operators.append(display.text!)
     }
     
+    @IBAction func ClearButtonPressed(_ sender: UIButton) {
+        display.text?.removeAll()
+        operators.removeAll()
+    }
+    
     @IBAction func OpButtonPressed(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         if operators.count % 2 == 1 {
             display.text?.append(op!)
             operators.append(op!)
-            
-//            if op == "+" {
-//                display.text?.append("+")
-//                operators.append("+")
-//            } else if op == "*" {
-//                display.text?.append("*")
-//                operators.append("*")
-//            } else if op == "-" {
-//                display.text?.append("-")
-//                operators.append("-")
-//            } else if op == "/" {
-//                display.text?.append("/")
-//                operators.append("/")
-//            } else if op == "%" {
-//                display.text?.append("%")
-//                operators.append("%")
-//            }
-            
             index += 2
         }
     }
