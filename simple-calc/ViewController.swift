@@ -100,7 +100,7 @@ class ViewController: UIViewController {
                 var total = 1
                 let firstNumber = Int.init(operators[0])
                 if firstNumber! > 20 {
-                    display.text?.append("to big a number")
+                    display.text?.append("too big a number")
                 } else {
                     for index in 1...firstNumber! {
                         total *= index
@@ -117,7 +117,7 @@ class ViewController: UIViewController {
             }
         }
         
-        print("History TEST: \(historyString)")
+        // print("History TEST: \(historyString)") // For Debug
         history.append(historyString)
         data.emptyStringArray.append(historyString)
         
@@ -168,30 +168,15 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        if historyList != nil {
-//            print(history)
-//            historyList.backgroundColor = UIColor.cyan
-//            var count = 0
-//            for each in history {
-//                print("I got called")
-//                let item = UILabel(frame: CGRect(x: 10, y: 45 * count + 10, width: 225, height: 45))
-//                item.text = each
-//                historyList.addSubview(item)
-//                count += 1
-//            }
-//        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if historyList != nil {
-            print(history)
-            historyList.backgroundColor = UIColor.cyan
+            // print(history) // For Debug
+            historyList.backgroundColor = UIColor.lightGray
             var count = 0
             for each in data.emptyStringArray {
-                let item = UILabel(frame: CGRect(x: 10, y: 45 * count + 10, width: 225, height: 45))
+                let item = UILabel(frame: CGRect(x: 20, y: 45 * count + 10, width: 225, height: 45))
                 item.text = each
                 historyList.addSubview(item)
                 count += 1
