@@ -173,10 +173,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         if historyList != nil {
             // print(history) // For Debug
-            historyList.backgroundColor = UIColor.lightGray
+            historyList.backgroundColor = UIColor(red: 239.0 / 255.0, green: 239.0 / 255.0, blue: 239.0 / 255.0, alpha: 1.0)
             var count = 0
             for each in data.emptyStringArray {
-                let item = UILabel(frame: CGRect(x: 20, y: 45 * count + 10, width: 225, height: 45))
+                let item = UILabel(frame: CGRect(x: 20, y: 45 * count + 10, width: 500, height: 45))
                 item.text = each
                 historyList.addSubview(item)
                 count += 1
