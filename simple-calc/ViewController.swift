@@ -8,36 +8,75 @@
 
 import UIKit
 
+// MARK: - Singleton
+
+final class Singleton {
+    
+    // Can't init is singleton
+    private init() { }
+    
+    // MARK: Shared Instance
+    
+    static let shared: Singleton = Singleton()
+    
+    // MARK: Local Variable
+    
+    var emptyStringArray : [String] = []
+    
+}
+
 class ViewController: UIViewController {
     var operators = [String]()
+    var history = [String]()
+    var data = Singleton.shared
     var index = 0
+    var historyTableViewController: HistoryTableViewController?
     
     @IBOutlet weak var display: UITextField!
 
+    @IBOutlet weak var historyList: UIScrollView!
+    
+
     
     @IBAction func EqualsButtonPressed(_ sender: Any) {
+        // Goes through operators and builds up a string rep
+        var historyString = ""
+        for item in operators {
+            historyString += item + " "
+        }
+        historyString += "= "
+        
         if operators.count > 2 {
             let op1 = Int(operators[0])
             let op2 = Int(operators[2])
             let opMiddle = operators[1]
-            print("TEST: \(operators)")
+            
+            //print("TEST: \(operators)"
+            
             display.text?.removeAll()
             if opMiddle == "+" {
                 display.text?.append("\(op1! + op2!)")
+                historyString += "\(op1! + op2!)"
             } else if opMiddle == "*" {
                 display.text?.append("\(op1! * op2!)")
+                historyString += "\(op1! * op2!)"
             } else if opMiddle == "-" {
                 display.text?.append("\(op1! - op2!)")
+                historyString += "\(op1! - op2!)"
             } else if opMiddle == "/" {
                 if op2 == 0 {
                     display.text?.append("not a number")
+                    historyString += "not a number"
                 } else {
                     display.text?.append("\(op1! / op2!)")
+                    historyString += "\(op1! / op2!)"
                 }
             } else if opMiddle == "%" {
                 display.text?.append("\(op1! % op2!)")
+                historyString += "\(op1! % op2!)"
             } else if opMiddle == "count" {
                 display.text?.append("\((operators.count + 1) / 2)")
+                historyString += "\((operators.count + 1) / 2)"
             } else if opMiddle == "avg" {
                 let numOfElements = (operators.count + 1) / 2
                 var total = 0
@@ -47,9 +86,11 @@ class ViewController: UIViewController {
                     }
                 }
                 display.text?.append("\(total/numOfElements)")
+                historyString += "\(total/numOfElements)"
             }
         } else if operators.count == 2 {
-            print("TEST: \(operators)")
+            //print("TEST: \(operators)")
+            
             display.text?.removeAll()
             
             let opMiddle = operators[1]
@@ -58,21 +99,34 @@ class ViewController: UIViewController {
                 
                 var total = 1
                 let firstNumber = Int.init(operators[0])
-                for index in 1...firstNumber! {
-                    total *= index
+                if firstNumber! > 20 {
+                    display.text?.append("to big a number")
+                } else {
+                    for index in 1...firstNumber! {
+                        total *= index
+                    }
+                    display.text?.append("\(total)")
+                    historyString += "\(total)"
                 }
-                display.text?.append("\(total)")
-
             } else if opMiddle == "count" {
                 display.text?.append("\((operators.count + 1) / 2)")
+                historyString += "\((operators.count + 1) / 2)"
             } else if opMiddle == "avg" {
                 display.text?.append("\(operators[0])")
+                historyString += "\(operators[0])"
             }
         }
+        
+        print("History TEST: \(historyString)")
+        history.append(historyString)
+        data.emptyStringArray.append(historyString)
+        
+        print(history)
         index = 0
         operators.removeAll()
         operators.append(display.text!)
     }
+    
     
     @IBAction func ClearButtonPressed(_ sender: UIButton) {
         display.text?.removeAll()
@@ -100,13 +154,49 @@ class ViewController: UIViewController {
                 operators.remove(at: index)
             }
             operators.append(value!)
-            print("TEST: \(operators)")
+            
+            // print("TEST: \(operators)")
         }
     }
+    
+    // NOT USED YET
+    @IBAction func HistoryButtonPressed(_ sender: UIButton) {
+        
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        if historyList != nil {
+//            print(history)
+//            historyList.backgroundColor = UIColor.cyan
+//            var count = 0
+//            for each in history {
+//                print("I got called")
+//                let item = UILabel(frame: CGRect(x: 10, y: 45 * count + 10, width: 225, height: 45))
+//                item.text = each
+//                historyList.addSubview(item)
+//                count += 1
+//            }
+//        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if historyList != nil {
+            print(history)
+            historyList.backgroundColor = UIColor.cyan
+            var count = 0
+            for each in data.emptyStringArray {
+                let item = UILabel(frame: CGRect(x: 10, y: 45 * count + 10, width: 225, height: 45))
+                item.text = each
+                historyList.addSubview(item)
+                count += 1
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

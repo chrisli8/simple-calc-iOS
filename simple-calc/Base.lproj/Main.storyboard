@@ -260,6 +260,10 @@
                                                 <state key="normal" title="History">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="HistoryButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iNP-SZ-CH2"/>
+                                                    <segue destination="hlk-Ip-JBo" kind="show" id="gBo-d9-pyU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -281,6 +285,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QvK-JL-ttj">
+            <objects>
+                <viewController id="hlk-Ip-JBo" customClass="ViewController" customModule="simple_calc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kgz-lP-LI0"/>
+                        <viewControllerLayoutGuide type="bottom" id="7fI-D4-eYH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cfL-nT-eiC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euE-Yn-mbo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="History" id="Ykp-Pu-Lhd">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="2DK-vY-Zle">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="TgQ-5R-WnU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0i-mw-Jtl">
+                                <rect key="frame" x="26" y="74" width="343" height="571"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="571" id="qG8-jn-2b6"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="euE-Yn-mbo" secondAttribute="trailing" id="3RM-tJ-sTd"/>
+                            <constraint firstItem="euE-Yn-mbo" firstAttribute="top" secondItem="kgz-lP-LI0" secondAttribute="bottom" id="Gw9-0h-Irc"/>
+                            <constraint firstItem="F0i-mw-Jtl" firstAttribute="top" secondItem="euE-Yn-mbo" secondAttribute="bottom" constant="10" id="Oex-Q2-POk"/>
+                            <constraint firstItem="F0i-mw-Jtl" firstAttribute="leading" secondItem="cfL-nT-eiC" secondAttribute="leadingMargin" constant="10" id="XbV-ag-2IU"/>
+                            <constraint firstItem="F0i-mw-Jtl" firstAttribute="trailing" secondItem="cfL-nT-eiC" secondAttribute="trailingMargin" constant="10" id="huf-Yu-ITc"/>
+                            <constraint firstItem="euE-Yn-mbo" firstAttribute="leading" secondItem="cfL-nT-eiC" secondAttribute="leading" id="nxc-er-Ruz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="historyList" destination="F0i-mw-Jtl" id="rCX-Vi-yc9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ow-5Y-pB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="885.60000000000002" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>

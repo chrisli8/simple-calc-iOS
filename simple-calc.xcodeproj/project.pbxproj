@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		979AFD2A1EAFB50D00E23F73 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979AFD291EAFB50C00E23F73 /* HistoryTableViewController.swift */; };
 		979CCE171EA59D9A00E856B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979CCE161EA59D9A00E856B0 /* AppDelegate.swift */; };
 		979CCE191EA59D9A00E856B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979CCE181EA59D9A00E856B0 /* ViewController.swift */; };
 		979CCE1C1EA59D9A00E856B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 979CCE1A1EA59D9A00E856B0 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		979AFD291EAFB50C00E23F73 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		979CCE131EA59D9A00E856B0 /* simple-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		979CCE161EA59D9A00E856B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		979CCE181EA59D9A00E856B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				979CCE1D1EA59D9A00E856B0 /* Assets.xcassets */,
 				979CCE1F1EA59D9A00E856B0 /* LaunchScreen.storyboard */,
 				979CCE221EA59D9A00E856B0 /* Info.plist */,
+				979AFD291EAFB50C00E23F73 /* HistoryTableViewController.swift */,
 			);
 			path = "simple-calc";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				979CCE191EA59D9A00E856B0 /* ViewController.swift in Sources */,
 				979CCE171EA59D9A00E856B0 /* AppDelegate.swift in Sources */,
+				979AFD2A1EAFB50D00E23F73 /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
